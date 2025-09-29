@@ -1,7 +1,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import About from '../components/About';
+import Certifications from '../components/Certifications';
 import Products from '../components/Products';
+import Testimonials from '../components/Testimonials';
 import Shipping from '../components/Shipping';
 import Stats from '../components/Stats';
 import Contact from '../components/Contact';
@@ -12,7 +15,10 @@ const Home = () => {
     <div className="App">
       <Navbar />
       <Hero />
+      <About />
+      <Certifications />
       <Products />
+      <Testimonials />
       <Shipping />
       <Stats />
       <Contact />

@@ -70,6 +70,33 @@
   border-left-color: #0284c7;
 }
 
+/* Simple style: no hover/shine effects and sky color */
+.contact-card.no-effect {
+  transition: none;
+}
+.contact-card.no-effect::before {
+  display: none;
+}
+.contact-card.no-effect:hover {
+  transform: none;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  border-left-color: #0ea5e9;
+}
+.contact-card.sky {
+  border-left-color: #87ceeb; /* sky blue */
+}
+.contact-card.sky h3,
+.contact-card.sky .contact-details p,
+.contact-card.sky .contact-details strong,
+.contact-card.sky .contact-icon {
+  color: #0ea5e9;
+}
+
+/* Force title color to black for specific simple cards */
+.contact-card.title-black h3 {
+  color: #000000 !important;
+}
+
 .contact-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
@@ -373,10 +400,29 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-content {
+    gap: 50px;
+  }
+  
+  .form-header h3 {
+    font-size: 2rem;
+  }
+  
+  .inquiry-form-container {
+    padding: 35px;
+  }
+}
+
 @media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 0;
+  }
+  
   .contact-content {
     grid-template-columns: 1fr;
     gap: 40px;
+    margin-bottom: 40px;
   }
   
   .form-row {
@@ -396,18 +442,62 @@
     font-size: 1.5rem;
   }
   
+  .form-header p {
+    font-size: 0.9rem;
+  }
+  
+  .contact-info {
+    gap: 25px;
+  }
+  
+  .contact-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
   .map-container {
     padding: 30px 20px;
+  }
+  
+  .map-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .map-icon {
+    font-size: 3rem;
+  }
+  
+  .map-placeholder p {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .contact-section {
-    padding: 60px 0;
+    padding: 3rem 0;
   }
   
   .contact-content {
     gap: 30px;
+    margin-bottom: 30px;
   }
   
   .inquiry-form-container {
@@ -422,8 +512,144 @@
     font-size: 1.3rem;
   }
   
+  .form-header p {
+    font-size: 0.85rem;
+  }
+  
+  .contact-info {
+    gap: 20px;
+  }
+  
+  .contact-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .contact-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .contact-details p {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+  
+  .email-link {
+    font-size: 0.9rem;
+  }
+  
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+  }
+  
   .submit-btn {
     padding: 12px 25px;
     font-size: 1rem;
+    margin-top: 12px;
+  }
+  
+  .map-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+  
+  .map-container {
+    padding: 25px 15px;
+  }
+  
+  .map-icon {
+    font-size: 2.5rem;
+  }
+  
+  .map-placeholder p {
+    font-size: 0.9rem;
+  }
+  
+  .map-placeholder p:first-of-type {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-section {
+    padding: 2.5rem 0;
+  }
+  
+  .contact-content {
+    gap: 25px;
+  }
+  
+  .inquiry-form-container {
+    padding: 20px 12px;
+  }
+  
+  .contact-card {
+    padding: 18px 12px;
+  }
+  
+  .form-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .form-header p {
+    font-size: 0.8rem;
+  }
+  
+  .contact-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .contact-icon {
+    font-size: 1.6rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.8rem;
+  }
+  
+  .form-group label {
+    font-size: 0.8rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .map-container {
+    padding: 20px 12px;
+  }
+  
+  .map-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .map-icon {
+    font-size: 2rem;
+  }
+  
+  .map-placeholder p {
+    font-size: 0.85rem;
   }
 }

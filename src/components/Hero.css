@@ -6,6 +6,22 @@
   position: relative;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   overflow: hidden;
+  padding-top: 135px; /* keep below fixed navbar */
+  scroll-margin-top: 135px; /* anchor offset */
+}
+
+/* Subtle vignette and texture overlay for a richer look */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(1000px 600px at 80% 20%, rgba(255, 255, 255, 0.06), transparent 60%),
+    radial-gradient(800px 500px at 20% 70%, rgba(14, 165, 233, 0.07), transparent 60%),
+    radial-gradient(closest-side, rgba(0, 0, 0, 0.35), transparent 70%);
+  mix-blend-mode: screen;
 }
 
 .hero-content {
@@ -14,14 +30,61 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
   z-index: 2;
   position: relative;
+  min-height: calc(100vh - 100px);
 }
 
 .hero-text {
   animation: fadeInUp 1s ease-out;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  color: #ffffff;
+  animation: slideInLeft 1s ease-out 0.3s both;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #87ceeb !important;
+  font-weight: 600;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  color: #87ceeb !important;
+}
+
+.feature-icon {
+  font-size: 1rem;
 }
 
 .hero-title {
@@ -105,20 +168,23 @@
 .floating-products {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   position: relative;
+  padding: 1rem;
 }
 
 .product-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   gap: 1rem;
   transition: all 0.3s ease;
   animation: float 3s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .product-card:hover {
@@ -162,7 +228,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 0; /* push under vignette overlay */
 }
 
 .floating-shapes {
@@ -225,6 +291,17 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -243,26 +320,222 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: 2.5rem;
+    padding: 0 30px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .world-map {
+    width: 420px; /* smaller on tablets too */
+    height: 420px;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
+    padding: 2rem 20px;
+    min-height: calc(100vh - 80px);
   }
   
   .hero-title {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
   
   .hero-buttons {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .hero-features {
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+  
+  .feature-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    color: #87ceeb !important;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+  }
+  
+  .floating-products {
+    padding: 0.5rem;
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .product-card {
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .product-icon {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+  
+  .product-card span {
+    font-size: 0.9rem;
+  }
+  
+  /* Hide some background elements on mobile for better performance */
+  .world-map {
+    width: 300px;
+    height: 300px;
+    opacity: 0.03;
+  }
+  
+  .floating-shapes {
+    display: none;
+  }
+  
+  .floating-particles {
+    display: none;
+  }
+  
+  .connection-lines {
+    display: none;
+  }
+  
+  .floating-containers {
+    display: none;
+  }
+  
+  .floating-flags {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    padding: 1.5rem 15px;
+    gap: 1.5rem;
+  }
+  
   .hero-title {
     font-size: 2rem;
+    line-height: 1.3;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .floating-products {
+    padding: 0.3rem;
+    gap: 0.8rem;
+  }
+  
+  .product-card {
+    padding: 0.8rem;
+    border-radius: 12px;
+    gap: 0.6rem;
+  }
+  
+  .product-icon {
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .product-card span {
+    font-size: 0.8rem;
+  }
+  
+  .feature-item {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .feature-icon {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-content {
+    padding: 1rem 10px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .product-card {
+    padding: 0.6rem;
+  }
+  
+  .product-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .product-card span {
+    font-size: 0.75rem;
   }
 }
 
@@ -272,9 +545,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  opacity: 0.1;
+  width: 480px; /* smaller globe */
+  height: 480px;
+  opacity: 0.06;
   z-index: 1;
 }
 
@@ -284,7 +557,7 @@
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #1e40af, #1e3a8a, #1e293b);
   position: relative;
-  animation: rotateGlobe 20s linear infinite;
+  animation: rotateGlobe 40s linear infinite; /* smoother, slower rotation */
   box-shadow: 
     inset -20px -20px 50px rgba(0, 0, 0, 0.3),
     0 0 100px rgba(59, 130, 246, 0.1);
@@ -367,8 +640,8 @@
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 3px; /* subtler particles */
+  height: 3px;
   background: #0ea5e9;
   border-radius: 50%;
   animation: floatParticle 8s ease-in-out infinite;
@@ -571,15 +844,16 @@
 
 .mini-container {
   position: absolute;
-  width: 60px;
-  height: 40px;
+  width: 36px; /* smaller containers */
+  height: 24px;
   background: linear-gradient(135deg, #e74c3c, #c0392b);
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   animation: floatContainer 4s ease-in-out infinite;
+  opacity: 0.8;
 }
 
 .mini-container:nth-child(2) {
@@ -593,7 +867,7 @@
 }
 
 .container-icon {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
@@ -623,17 +897,19 @@
 
 .mini-flag {
   position: absolute;
-  font-size: 2rem;
-  width: 50px;
-  height: 40px;
+  font-size: 1rem; /* smaller flags */
+  width: 24px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   animation: floatFlag 5s ease-in-out infinite;
   cursor: pointer;
   transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .mini-flag:hover {

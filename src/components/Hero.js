@@ -12,13 +12,29 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-content">
         <div className={`hero-text ${isLoaded ? 'fade-in-up' : ''}`}>
+          
           <h1 className="hero-title">
             Premium Food Exports
             <span className="highlight"> Worldwide</span>
           </h1>
           <p className="hero-subtitle">
-            Leading exporter of high-quality onion powder, garlic powder, and premium food chips
+            Leading exporter of high-quality onion powder, garlic powder, and premium food chips to 50+ countries. 
+            <strong> 15+ years of excellence</strong> in food export industry.
           </p>
+          <div className="hero-features">
+            <div className="feature-item">
+              <span className="feature-icon">✅</span>
+              <span>ISO Certified Quality</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🚢</span>
+              <span>Global Shipping</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🌱</span>
+              <span>100% Natural Products</span>
+            </div>
+          </div>
           <div className="hero-buttons">
             <a href="#products" className="btn-primary">Explore Products</a>
             <a href="#contact" className="btn-secondary">Get Quote</a>

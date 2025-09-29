@@ -65,9 +65,9 @@ const Contact = () => {
                   <div className="contact-icon">👥</div>
                   <h3>Contact Persons</h3>
                   <div className="contact-details">
-                    <p><strong>Founder - Paras Vaghasiya</strong></p>
-                    <p><strong>Founder - Nikunj Vaghasiya</strong></p>
-                    <p><strong>CEO - Kishan Vaghasiya</strong></p>
+                    <p><strong>Paras Vaghasiya</strong></p>
+                    <p><strong>Nikunj Vaghasiya</strong></p>
+                    <p><strong>Kishan Vaghasiya</strong></p>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -84,29 +84,25 @@ const Contact = () => {
                 </div>
               </ScrollAnimation>
 
-              <ScrollAnimation animation="fade-in-up" delay={0.4}>
-                <div className="contact-card">
-                  <div className="contact-icon">📍</div>
-                  <h3>Address</h3>
-                  <div className="contact-details">
-                    <p>Shop. 04, Nityananda Co.</p>
-                    <p>Vapi, Dist. Valsad</p>
-                    <p>Gujarat, India</p>
-                  </div>
+              <div className="contact-card no-effect sky title-black">
+                <div className="contact-icon">📍</div>
+                <h3>Address</h3>
+                <div className="contact-details">
+                  <p>Shop. 04, Nityananda Co.</p>
+                  <p>Vapi, Dist. Valsad</p>
+                  <p>Gujarat, India</p>
                 </div>
-              </ScrollAnimation>
+              </div>
 
-              <ScrollAnimation animation="fade-in-up" delay={0.5}>
-                <div className="contact-card">
-                  <div className="contact-icon">🌍</div>
-                  <h3>Global Reach</h3>
-                  <div className="contact-details">
-                    <p>Exporting to 50+ countries</p>
-                    <p>Worldwide shipping available</p>
-                    <p>Quality assured products</p>
-                  </div>
+              <div className="contact-card no-effect sky title-black">
+                <div className="contact-icon">🌍</div>
+                <h3>Global Reach</h3>
+                <div className="contact-details">
+                  <p>Exporting to 50+ countries</p>
+                  <p>Worldwide shipping available</p>
+                  <p>Quality assured products</p>
                 </div>
-              </ScrollAnimation>
+              </div>
             </div>
           </ScrollAnimation>
 
