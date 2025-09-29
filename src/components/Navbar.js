@@ -26,10 +26,9 @@ const Navbar = () => {
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="nav-container">
+        <div className="nav-container"> 
           <div className="nav-logo">
-            <img src={imgPath.logo} alt="SkyTech Food Export" className="logo" />
-            <span className="logo-text">Skytech International food supplies</span>
+            <img src={imgPath.logo1} alt="SkyTech Food Export" className="logo" />
           </div>
           <div className="nav-menu">
             <a href="#home" className="nav-link" onClick={closeMobileMenu}>Home</a>

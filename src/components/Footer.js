@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <img src={imgPath.logo} alt="SkyTech Food Export" className="footer-logo-img" />
+              <img src={imgPath.logo1} alt="SkyTech Food Export" className="footer-logo-img" />
               <span>Skytech International food supplies</span>
             </div>
             <p className="footer-description">
